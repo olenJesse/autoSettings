@@ -18,24 +18,24 @@
 			}
 		}
 		if (_isReady) {
-		await sleep(_bigPause);
-		var theCharts = ['leaguePlayers', 'leaguePlayerRetention'];
-		var showLeagues = ['Sanctum', 'Kalandra', 'Expedition', 'Ritual', 'Blight'];
-		for (let theChart of theCharts) {
-			var thisID = document.getElementById(theChart).getAttribute('_echarts_instance_');
-			var thisChart = echarts.getInstanceById(thisID); //ext
-			var thisData = Object.values(thisChart.getOption().legend[0].data);
-			var thisSelected = {};
-			for (let tempLeague of thisData) {
-				thisSelected[tempLeague] = showLeagues.includes(tempLeague);
-			}
-			thisChart.setOption({
-			  legend: {
-					selected: thisSelected
+			await sleep(_bigPause);
+			var theCharts = ['leaguePlayers', 'leaguePlayerRetention'];
+			var showLeagues = ['Sanctum', 'Kalandra', 'Expedition', 'Ritual', 'Blight'];
+			for (let theChart of theCharts) {
+				var thisID = document.getElementById(theChart).getAttribute('_echarts_instance_');
+				var thisChart = echarts.getInstanceById(thisID); //ext
+				var thisData = Object.values(thisChart.getOption().legend[0].data);
+				var thisSelected = {};
+				for (let tempLeague of thisData) {
+					thisSelected[tempLeague] = showLeagues.includes(tempLeague);
 				}
-			});
+				thisChart.setOption({
+				  legend: {
+						selected: thisSelected
+					}
+				});
+			}
 		}
-	}
 	} catch(err) {
 		alert(err);
 	}
