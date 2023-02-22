@@ -30,7 +30,7 @@
 					thisSelected[tempLeague] = showLeagues.includes(tempLeague);
 				}
 				thisChart.setOption({
-				  legend: {
+					legend: {
 						selected: thisSelected
 					}
 				});
